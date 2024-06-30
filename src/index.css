@@ -1,17 +1,55 @@
-
-#inp {
-  width: 24rem;
-}
-#copy{
-  width: 7rem;
-}
-
-#top{
-  color: #bcd4e6;
-}
-
-#container{
+/* App.css */
+#container {
+  margin: 0 auto;
   background-color: #2a2b2e;
-  height: 12rem;
+  padding: 1rem;
   border-radius: 8px;
+  max-width: 600px;
+}
+
+#top {
+  color: #bcd4e6;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+}
+
+.form-inline {
+  flex-direction: column;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.btn-group {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .form-inline {
+    flex-direction: row; 
+    align-items: center;
+  }
+
+  .form-group {
+    margin-right: 0.5rem;
+  }
+
+  .btn {
+    margin-left: 0.5rem;
+  }
 }

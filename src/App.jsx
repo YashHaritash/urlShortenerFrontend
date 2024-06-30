@@ -25,6 +25,7 @@ function App() {
       );
 
       if (!response.ok) {
+        const data = await response.json();
         toast.error(data.message ? data.message : "Something Went Wrong");
         return;
       }
@@ -55,13 +56,13 @@ function App() {
   return (
     <>
       <div className="row mx-sm-3 my-5">
-        <div className="col-3"></div>
-        <div className="col-6" id="container">
+        <div className="col-sm-3 col-xs-1"></div>
+        <div className="col-sm-6 col-xs-10" id="container">
           <h1 className="text-center my-4" id="top">
             <i>Tinga URL</i>
           </h1>
           <form className="form-inline">
-            <div className="form-group mx-sm-3 mb-2">
+            <div className="input-group">
               <input
                 type="text"
                 className="form-control"
@@ -71,25 +72,27 @@ function App() {
                 onChange={(e) => setInp(e.target.value)}
               />
             </div>
-            <button
-              type="button"
-              className="btn btn-primary mb-2 mx-2"
-              id="shorten"
-              onClick={handleShorten}
-            >
-              SHORTEN
-            </button>
-            <button
-              type="button"
-              className="btn btn-warning mb-2 mx-2"
-              id="copy"
-              onClick={handleCopy}
-            >
-              COPY
-            </button>
+            <div className="btn-group">
+              <button
+                type="button"
+                className="btn btn-primary mb-2 mx-2"
+                id="shorten"
+                onClick={handleShorten}
+              >
+                SHORTEN
+              </button>
+              <button
+                type="button"
+                className="btn btn-warning mb-2 mx-2"
+                id="copy"
+                onClick={handleCopy}
+              >
+                COPY
+              </button>
+            </div>
           </form>
         </div>
-        <div className="col-3"></div>
+        <div className="col-sm-3 col-xs-1"></div>
       </div>
       <Toaster />
     </>
