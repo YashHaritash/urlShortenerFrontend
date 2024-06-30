@@ -11,15 +11,18 @@ function App() {
         return;
       }
 
-      const response = await fetch("http://localhost:3131/new", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          full: inp,
-        }),
-      });
+      const response = await fetch(
+        "https://urlshortenerbackend-viev.onrender.com/new",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            full: inp,
+          }),
+        }
+      );
 
       if (!response.ok) {
         toast.error(data.message ? data.message : "Something Went Wrong");
@@ -27,7 +30,7 @@ function App() {
       }
 
       const data = await response.json();
-      setInp(`http://localhost:3131/${data.shortUrl}`);
+      setInp(`https://urlshortenerbackend-viev.onrender.com/${data.shortUrl}`);
       toast.success(data.message ? data.message : "Done");
     } catch (error) {
       console.error("Error:", error);
