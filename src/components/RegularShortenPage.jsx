@@ -1,0 +1,99 @@
+import React, { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+
+function RegularShortenPage() {
+  const [inp, setInp] = useState('');
+
+  const handleShorten = async (e) => {
+    e.preventDefault();
+    try {
+      if (inp.length === 0) {
+        return;
+      }
+
+      const response = await fetch('https://urlshortenerbackend-viev.onrender.com/new', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          full: inp,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        toast.error(data.message ? data.message : 'Something Went Wrong');
+        return;
+      }
+
+      const data = await response.json();
+      setInp(`https://urlshortenerbackend-viev.onrender.com/${data.shortUrl}`);
+      toast.success(data.message ? data.message : 'Done');
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error('Something Went Wrong');
+    }
+  };
+
+  const handleCopy = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(inp).then(
+      () => {
+        console.log('Text copied to clipboard');
+        toast.success('Text copied to clipboard');
+      },
+      (err) => {
+        console.error('Failed to copy text: ', err);
+        toast.error('Failed to copy text');
+      }
+    );
+  };
+
+  return (
+    <>
+      <div className="row mx-sm-3 my-5">
+        <div className="col-sm-3 col-xs-1"></div>
+        <div className="col-sm-6 col-xs-10" id="container">
+          <h1 className="text-center my-4" id="top">
+            <i>Tinga URL</i>
+          </h1>
+          <form className="form-inline">
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                id="inp"
+                placeholder="Enter URL"
+                value={inp}
+                onChange={(e) => setInp(e.target.value)}
+              />
+            </div>
+            <div className="btn-group">
+              <button
+                type="button"
+                className="btn btn-primary mb-2 mx-2"
+                id="shorten"
+                onClick={handleShorten}
+              >
+                SHORTEN
+              </button>
+              <button
+                type="button"
+                className="btn btn-warning mb-2 mx-2"
+                id="copy"
+                onClick={handleCopy}
+              >
+                COPY
+              </button>
+            </div>
+          </form>
+        </div>
+        <div className="col-sm-3 col-xs-1"></div>
+      </div>
+      <Toaster />
+    </>
+  );
+}
+
+export default RegularShortenPage;
