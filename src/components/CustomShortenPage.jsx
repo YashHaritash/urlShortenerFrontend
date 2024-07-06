@@ -41,7 +41,7 @@ function CustomShortenPage() {
       toast.success(data.message ? data.message : "Done");
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Something Went Wrong");
+      toast.error(error.message ? error.message : "Something Went Wrong");
     }
   };
 
