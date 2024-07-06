@@ -12,7 +12,7 @@ To run this application locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/YashHaritash/urlShortenerFrontend.git
    cd url-shortener-app
 2. Install dependencies:
     ```bash
