@@ -1,8 +1,36 @@
-# React + Vite
+# URL Shortener App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple URL shortener web application built using React and React Router.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application allows users to shorten URLs using two methods: regular and custom shortening. It utilizes React for frontend rendering and React Router for managing client-side routing.
+
+## Installation
+
+To run this application locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd url-shortener-app
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+4. Start the client:
+    ```bash
+    npm run dev
+    ```
+
+## Technologies Used
+
+- **React**: Frontend JavaScript library for building user interfaces.
+- **React Router**: Declarative routing for React applications.
+- **Bootstrap**: CSS framework for styling components.
+
+
+
+
+## Contact
+For any queries, drop an email @ yaaash04@gmail.com
