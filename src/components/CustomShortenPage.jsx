@@ -10,6 +10,7 @@ function CustomShortenPage() {
     e.preventDefault();
     try {
       if (fullUrl.length === 0 || customShortUrl.length === 0) {
+        toast.error("Please give valid Inputs");
         return;
       }
 
@@ -80,7 +81,7 @@ function CustomShortenPage() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Custom Short URL (optional)"
+                placeholder="Enter Custom Short URL Extension"
                 value={customShortUrl}
                 onChange={(e) => setCustomShortUrl(e.target.value)}
               />
